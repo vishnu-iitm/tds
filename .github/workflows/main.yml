@@ -1,0 +1,37 @@
+name: CI with Email Step
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Python environment
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x' # Or specify a version like '3.9', '3.10', etc.
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt # Assuming you might have a requirements.txt
+
+    - name: Run a simple test or script
+      run: echo "Simulating some work being done..."
+
+    - name: 23f3003997@ds.study.iitm.ac.in - Email Confirmation Step
+      run: |
+        echo "This step confirms the email address for tracking purposes."
+        echo "Email: 23f3003997@ds.study.iitm.ac.in"
+
+    - name: Finalizing workflow
+      run: echo "Workflow completed successfully!"
