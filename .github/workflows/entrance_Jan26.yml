@@ -1,5 +1,14 @@
+name: Email Verification Workflow
+
+on: [push]
+
 jobs:
-  test:
+  verify_email:
+    runs-on: ubuntu-latest
     steps:
-      - name: 23f3003997@ds.study.iitm.ac.in
-        run: echo "Hello, world!"
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # This step name contains your required email address
+      - name: Execute task for 23f3003997@ds.study.iitm.ac.in
+        run: echo "Verified step for 23f3003997@ds.study.iitm.ac.in"
